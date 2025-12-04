@@ -33,6 +33,7 @@ def servo_direct_test():
     print("servo test: 180")
     servo1.angle = 180
     time.sleep(2)
+
     
 # Servo smooth test
 def servo_smooth_test():
@@ -50,5 +51,5 @@ def servo_smooth_test():
 # main loop
 while True:
     # uncomment to run a test
-    # servo_direct_test()
-    servo_smooth_test() 
+    servo_direct_test()
+    # servo_smooth_test() 
