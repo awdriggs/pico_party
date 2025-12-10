@@ -4,7 +4,7 @@
 DEVICE_PATH = /Volumes/CIRCUITPY
 SERIAL_PORT = /dev/tty.usbmodem1101
 BAUD_RATE = 115200
-SOURCE_FILE = spec2rgb.py
+SOURCE_FILE = code.py
 
 # Targets
 .PHONY: help upload monitor clean reset

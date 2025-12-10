@@ -6,7 +6,8 @@ from adafruit_as7341 import AS7341
 # Define I2C using specific pins for the Raspberry Pi Pico
 # blue qt stemma cable goes to 16
 # yellow qt stemma calbe goes to 17
-i2c = busio.I2C(scl=board.GP17, sda=board.GP16)  # Replace with the correct pins
+# i2c = busio.I2C(scl=board.GP17, sda=board.GP16)  # Replace with the correct pins
+i2c = busio.I2C(scl=board.GP15, sda=board.GP14)  # Replace with the correct pins
 
 sensor = AS7341(i2c) #color sensor on a breakout board
 

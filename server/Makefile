@@ -4,7 +4,7 @@
 DEVICE_PATH = /Volumes/CIRCUITPY
 SERIAL_PORT = /dev/tty.usbmodem1101
 BAUD_RATE = 115200
-SOURCE_FILE = spec2rgb.py
+SOURCE_FILE = main.py
 
 # Targets
 .PHONY: help upload monitor clean reset
@@ -36,6 +36,10 @@ upload: check
 	fi
 	@echo "Copying $(SOURCE_FILE) to $(DEVICE_PATH)/code.py..."
 	@cp $(SOURCE_FILE) $(DEVICE_PATH)/code.py
+	@if [ -f "index.html" ]; then \
+		echo "Copying index.html to $(DEVICE_PATH)/index.html..."; \
+		cp index.html $(DEVICE_PATH)/index.html; \
+	fi
 	@echo "Upload complete!"
 	@sleep 1
 	@echo "CircuitPython will auto-reload..."

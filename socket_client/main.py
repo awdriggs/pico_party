@@ -1,4 +1,3 @@
-
 from os import getenv
 import ipaddress
 import wifi
