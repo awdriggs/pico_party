@@ -7,13 +7,14 @@ BAUD_RATE = 115200
 SOURCE_FILE = spec2rgb.py
 
 # Targets
-.PHONY: help upload monitor clean reset
+.PHONY: help upload monitor clean reset watch
 
 help:
 	@echo "CircuitPython Makefile Commands:"
 	@echo "  make upload    - Copy $(SOURCE_FILE) to $(DEVICE_PATH)/code.py"
 	@echo "  make monitor   - Monitor serial output (Ctrl-A then K to exit)"
 	@echo "  make run       - Upload and then monitor"
+	@echo "  make watch     - Auto-upload on file changes (requires watchexec)"
 	@echo "  make clean     - Remove code.py from device"
 	@echo "  make reset     - Touch code.py to trigger reload"
 	@echo "  make check     - Check if device is mounted"
@@ -63,3 +64,9 @@ reset: check
 ls: check
 	@echo "Files on device:"
 	@ls -lh $(DEVICE_PATH)
+
+# Watch for changes and auto-upload
+watch:
+	@echo "Watching $(SOURCE_FILE) for changes..."
+	@echo "Press Ctrl-C to stop"
+	@watchexec -w $(SOURCE_FILE) make upload
